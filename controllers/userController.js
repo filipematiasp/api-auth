@@ -23,6 +23,7 @@ async function register(req, res) {
 }
 
 async function login(req, res) {
+    console.log('entrou')
     const selectedUser = await User.findOne({email: req.body.email})
     if (!selectedUser) {
         return res.status(400).send('Email or password incorrect')

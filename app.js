@@ -6,6 +6,7 @@ const app = express()
 
 import mongoose from 'mongoose'
 
+
 mongoose.connect(process.env.MONGO_CONNECTION_URL, (error) => {
     if(error) {
         console.log(error)
@@ -13,6 +14,15 @@ mongoose.connect(process.env.MONGO_CONNECTION_URL, (error) => {
         console.log('Mongo connected')
     }
 })
+
+import cors from 'cors'
+
+const corsOptions = {
+    origin: 'http://localhost:8080',
+}
+
+app.use(cors())
+
 
 
 import userRouter from './routes/userRouter.js'
