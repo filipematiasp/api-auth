@@ -23,14 +23,13 @@ async function register(req, res) {
 }
 
 async function login(req, res) {
-    console.log('entrou')
     const selectedUser = await User.findOne({email: req.body.email})
     if (!selectedUser) {
-        return res.status(400).send('Email or password incorrect')
+        return res.status(401).send('Email or password incorrect')
     }
     const passwordAndUserMatch = await compare(req.body.password, selectedUser.password)
     if (!passwordAndUserMatch) {
-        return res.status(400).send('Email or password incorrect')
+        return res.status(401).send('Email or password incorrect')
     }
 
     const token = jwt.sign({
