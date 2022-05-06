@@ -2,9 +2,10 @@
   "name": "api-auth",
   "version": "1.0.0",
   "description": "API for authentication",
-  "main": "app.js",
+  "main": "src/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "lint": ".\\node_modules\\.bin\\eslint src\\** test\\** --fix"
   },
   "repository": {
     "type": "git",
@@ -25,5 +26,10 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.2.9"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "eslint": "^8.14.0",
+    "jest": "^27.5.1",
+    "supertest": "^6.2.3"
+  }
 }
